@@ -43,28 +43,32 @@
 
 
 // each group should have its own function
-    // for lowercase i have to use const to set, var did not work research to be done.
-    function lowerRandom() {
-      let lower = 'abcdefghijklmnopqrstuvwxyz';
+  //if only one confirm
+  
+    // for lowercase i have to use const to set or cannot be changed, var did not work research to be done.
+function lowerRandom() {
+  const lower = 'abcdefghijklmnopqrstuvwxyz';
         return lower[Math.floor(Math.random() * lower.length)];
      }
        //just for uppercase
 function upperRandom() {
-  let upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     return upper[Math.floor(Math.random() * upper.length)];
  }
-console.log(upperRandom());
+
   
+       //index just for numbers
+function numberRandom() {
+  const number = '123456789';
+    return number[Math.floor(Math.random() * number.length)];
+ }
 
-//       //index just for numbers
-// function numberRandom() {
-//   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-// }
+       //index just for special characters
+function specialRandom() {
+  const special = '!"#$%&()*+,-./:;<=>?@[';
+    return special[Math.floor(Math.random() * special.length)];
+ }
 
-//       //index just for special characters
-// function specialRandom() {
-//   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-// }      
 
 //use index for combos
 //TWO CONFIRMS
