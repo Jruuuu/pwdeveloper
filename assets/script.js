@@ -35,7 +35,7 @@ function generatePassword() {
   function lowerRandom() {
     const lower = 'abcdefghijklmnopqrstuvwxyz';
     return lower[Math.floor(Math.random() * lower.length)];
-  }
+  } 
 
    //just for uppercase
   function upperRandom() {
@@ -55,12 +55,18 @@ function generatePassword() {
     const special = '!"#$%&()*+,-./:;<=>?@[';
     return special[Math.floor(Math.random() * special.length)];
   }
-
+  
 //use index for combos
 //TWO CONFIRMS
 //lowercase + uppercase
 var confirmLowerUpper = [lowerRandom, upperRandom];
-
+//lowercase + uppercase
+for(i=0; i < characlength ; i++) {
+  if(lower === true && upper ===true) {
+     confirmLowerUpper = confirmLowerUpper[Math.floor(Math.random() * characlength)];
+    passwordText = confirmLowerUpper;
+    };
+};
 //lowercase + numbers
 var confirmLowerNumber = [lowerRandom, upperRandom];
 
@@ -75,27 +81,15 @@ var confirmLowerUpperNumber =[lowerRandom, upperRandom, numberRandom];
 var confirmLowerSpecialNumber = [lowerRandom,specialRandom, numberRandom];
 
 //uppercase + specialCharacters + numbers
+var confirmUpperSpecialNumber = [upperRandom,specialRandom, numberRandom];
 
 //FOUR CONFIRMS
 //lowercase + uppercase + numbers + specialCharacters
+var allCharacters =[lowerRandom,upperRandom,numberRandom,specialRandom];
 
 
-
-
-passwordText.value = password;
-}
-
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-
-
-
-
-//use index for combos
 //TWO CONFIRMS
-//lowercase + uppercase
+
 //lowercase + numbers
 //lowercase + specialCharacters
 
@@ -106,3 +100,12 @@ generateBtn.addEventListener("click", writePassword);
 
 //FOUR CONFIRMS
 //lowercase + uppercase + numbers + specialCharacters
+
+
+
+passwordText.value = password;
+}}
+
+
+// Add event listener to generate button
+generatePassword.addEventListener("click", writePassword);
