@@ -7,10 +7,13 @@ var generateBtn = document.querySelector("#generate");
 
     // Prompt the length of password: min range 8 - 128 characters
 
-    while (characlength < 8 || characlength > 128) {
-      alert("Number needs to between 8-128 try again");
-      characlength = parseInt(prompt("Hello, Please enter length of password. 8-128"));
-    };
+    while (characlength < 8 || characlength > 128 || isNaN(characlength)) {
+      //make sure the alert is before the prompt
+      alert("Please enter a number between 8-128");
+          characlength = parseInt(prompt("Hello, Please enter length of password. 8-128"))
+        };
+    
+    
     //alert type of characters to use
     //Confirm lowercase
     var wantLower = confirm("Would you like lowercase letters in your password?");
