@@ -1,111 +1,71 @@
 // // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-var password = generatePassword();
-var passwordText = document.querySelector("#password");
-// When Click generate alerts a series of questions for password criteria
+  function generatePassword() {
+    // make variable characlength
+    var characlength = parseInt(prompt("Hello, Please enter length of password. 8-128"));
 
-function generatePassword() {
-  // make variable characlength
-  var characlength = prompt("Hello, Please enter length of password. 8-128");
+    // Prompt the length of password: min range 8 - 128 characters
 
-  // Prompt the length of password: min range 8 - 128 characters
-
-  if (characlength === null || characlength < 8 || characlength > 128) {
-    alert("Number needs to between 8-128 try again")
-  }
-  //alert type of characters to use
-  //Confirm lowercase
-  var lower = confirm("Would you like lowercase letters in your password?")
-
-  //confirm uppercase
-  var upper = confirm("Would you like uppercase letters in your password?")
-
-  //confirm numeric
-  var numbers = confirm("Would you like numbers in your password?")
-
-  //confirm special characters
-  var specials = confirm("Would you like special characters in your password?")
-
-  // each group should have its own function
-
-  // for lowercase i have to use const to set or cannot be changed, var did not work research to be done.
-  function lowerRandom() {
-    const lower = 'abcdefghijklmnopqrstuvwxyz';
-    return lower[Math.floor(Math.random() * lower.length)];
-  } 
-
-   //just for uppercase
-  function upperRandom() {
-    const upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    return upper[Math.floor(Math.random() * upper.length)];
-  }
-
-
-  //index just for numbers
-  function numberRandom() {
-    const number = '123456789';
-    return number[Math.floor(Math.random() * number.length)];
-  }
-
-  //index just for special characters
-  function specialRandom() {
-    const special = '!"#$%&()*+,-./:;<=>?@[';
-    return special[Math.floor(Math.random() * special.length)];
-  }
-  
-//use index for combos
-//TWO CONFIRMS
-//lowercase + uppercase
-var confirmLowerUpper = [lowerRandom, upperRandom];
-//lowercase + uppercase
-for(i=0; i < characlength ; i++) {
-  if(lower === true && upper ===true) {
-     confirmLowerUpper = confirmLowerUpper[Math.floor(Math.random() * characlength)];
-    passwordText = confirmLowerUpper;
+    while (characlength < 8 || characlength > 128) {
+      alert("Number needs to between 8-128 try again");
+      characlength = parseInt(prompt("Hello, Please enter length of password. 8-128"));
     };
-};
-//lowercase + numbers
-var confirmLowerNumber = [lowerRandom, upperRandom];
+    //alert type of characters to use
+    //Confirm lowercase
+    var wantLower = confirm("Would you like lowercase letters in your password?");
 
-//lowercase + specialCharacters
-var confirmLowerSpecial =[lowerRandom, upperRandom];
+    //confirm uppercase
+    var wantUpper = confirm("Would you like uppercase letters in your password?");
 
-//THREE CONFRIMS
-//lowercase + uppercase + numbers
-var confirmLowerUpperNumber =[lowerRandom, upperRandom, numberRandom];
+    //confirm numeric
+    var wantNumber = confirm("Would you like numbers in your password?");
 
-//lowercase + specialCharacters + numbers
-var confirmLowerSpecialNumber = [lowerRandom,specialRandom, numberRandom];
+    //confirm special characters
+    var wantSpecial = confirm("Would you like special characters in your password?");
 
-//uppercase + specialCharacters + numbers
-var confirmUpperSpecialNumber = [upperRandom,specialRandom, numberRandom];
+    //possibilties string
+    var lower = 'abcdefghijklmnopqrstuvwxyz';
+    var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var number = '0123456789';
+    var special = '!"#$%&()*+,-./:;<=>?@[';
 
-//FOUR CONFIRMS
-//lowercase + uppercase + numbers + specialCharacters
-var allCharacters =[lowerRandom,upperRandom,numberRandom,specialRandom];
+    //create an array with all the possibilities
+    var possibilities = "";
+    if (wantLower) {
+      possibilities += lower;
+    }
+    if (wantUpper) {
+      possibilities += upper;
+    }
+    if (wantNumber) {
+      possibilities += number;
+    }
+    if (wantSpecial) {
+      possibilities += special;
+    }
 
+    //pick random numbers and create password
+    var password = [];
+    //loop through as much as user wants
+    for (var i = 0; i < characlength; i++) {
+      //pick random number between possibility length range
+      var randomNumber = Math.floor(Math.random() * possibilities.length);
+      //pick ranfdom character 
+      var randomCharacter = possibilities[randomNumber];
+      //puch random character
+      password.push(randomCharacter);
+    }
 
-//TWO CONFIRMS
+    //password = ["a","5","."]
+    //concatonate the strings in array
+    password.join("");
+//passowrd = "a5."
 
-//lowercase + numbers
-//lowercase + specialCharacters
+//then put password in textarea
+//var passwordText = document.querySelector("#password").value;
+document.querySelector("#password").value = password.join("");
 
-//THREE CONFRIMS
-//lowercase + uppercase + numbers
-//lowercase + specialCharacters + numbers
-//uppercase + specialCharacters + numbers
-
-//FOUR CONFIRMS
-//lowercase + uppercase + numbers + specialCharacters
-
-
-
-passwordText.value = password;
-}}
-
-
+}
 // Add event listener to generate button
-generatePassword.addEventListener("click", writePassword);
+document.querySelector("#generatePassword").addEventListener("click", generatePassword);
