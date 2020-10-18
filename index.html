@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Password Generator</title>
-    <link rel="stylesheet" href="assets/style.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Password Generator</h1>
-      </header>
-      <div class="card">
-        <div class="card-header">
-          <h2>Generate a Password</h2>
-        </div>
-        <div class="card-body">
-          <textarea
-            readonly
-            id="password"
-            placeholder="Your Secure Password"
-            aria-label="Generated Password">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Password Generator</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>Password Generator</h1>
+    </header>
+    <div class="card">
+      <div class="card-header">
+        <h2>Generate a Password</h2>
+      </div>
+      <div class="card-body">
+        <!--id password is where generated password will be shown-->
+        <textarea readonly id="password" placeholder="Your Secure Password" aria-label="Generated Password">
           </textarea>
-        </div>
-        <!--add 'Function' generateBtn for the script to run function-->
-        <div class="card-footer">
-          <button  class="btn" id="generatePassword">Generate Password</button>
-        </div>
+      </div>
+      <!--add eventlistner click needs to be associated with id generatePassword in script-->
+      <div class="card-footer">
+        <button class="btn" id="generatePassword">Generate Password</button>
       </div>
     </div>
-    <script src="assets/script.js"></script>
-  </body>
+  </div>
+  <!--Make sure script source is correct-->
+  <script src="assets/script.js"></script>
+</body>
+
 </html>
