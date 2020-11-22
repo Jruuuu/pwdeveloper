@@ -9,10 +9,13 @@
 - [X] Confirms what type of characters
 - [X] User confirms lowercase, uppercase, numbers and/or special characters
 - [X] Password is generated in text area
-
+## Finish Product:
+<a href="https://jruuuu.github.io/pwdeveloper/
+">PW DEVELOPER</a>
 ### LICENSE & COPYRIGHT
 &copy; ENRILO M. UGALDE, UCSD EXTENSION SEP 2020 - MAR 2021 COHORT
 Background provided by tech.digest.tv
 ----
 #### SCREEN SHOT OF END RESULT SHOULD BE CLOSE TO.
 <img src="assets/images/03-javascript-homework-demo.png" alt="Password Generator Example Screenshot" width="400px" height="250px"/>
+
